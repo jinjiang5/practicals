@@ -17,35 +17,35 @@ int CommonOrder(string x, string y, string &z)
         {
             if (x.at(j - 1) == y.at(i - 1))
             {
-                L.at(i).at(j) = L.at(i - 1).at(j - 1) + 1;
-                S.at(i).at(j) = 1;
+                L[i][j] = L[i-1][j-1] + 1;
+                S[i][j] = 1;
             }
-            else if (L.at(i).at(j - 1) >= L.at(i - 1).at(j))
+            else if (L[i][j-1] >= L[i-1][j])
             {
-                L.at(i).at(j) = L.at(i).at(j - 1);
-                S.at(i).at(j) = 2;
+                L[i][j] = L[i][j-1];
+                S[i][j] = 2;
             }
             else
             {
-                L.at(i).at(j) = L.at(i - 1).at(j);
-                S.at(i).at(j) = 3;
+                L[i][j] = L[i-1][j];
+                S[i][j] = 3;
             }
         }
     }
     int i = y.size(), j = x.size();
     while (i > 0 && j > 0)
     {
-        if (S.at(i).at(j) == 1)
+        if (S[i][j] == 1)
         {
             z.insert(0, 1, x.at(j - 1));
             i--;
             j--;
         }
-        if (S.at(i).at(j) == 2)
+        if (S[i][j] == 2)
         {
             j--;
         }
-        if (S.at(i).at(j) == 3)
+        if (S[i][j] == 3)
         {
             i--;
         }
@@ -54,9 +54,12 @@ int CommonOrder(string x, string y, string &z)
 
 int main()
 {
-    string x = "acbbabdbb";
-    string y = "abcbdb";
-    string z;
+    string x, y, z;
+    cout << "input x:";
+    cin >> x;
+    cout << "input y:";
+    cin >> y;
     CommonOrder(x, y, z);
+    cout << z << endl;
     return 0;
 }
