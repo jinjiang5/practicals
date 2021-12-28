@@ -2,20 +2,19 @@
 
 using namespace std;
 
-int SearchTag(int a[], int n, int x)
+int SearchTag(int a[], int n)
 {
     int left = 0;
     int right = n - 1;
-    while (left < right)
+    while (left <= right)
     {
         int mid = (left + right) / 2;
-        x = mid;
-        if (x == a[mid])
+        if (mid == a[mid])
             return mid;
-        if (x > a[mid])
-            right = mid - 1;
-        else
+        if (mid > a[mid])
             left = mid + 1;
+        else
+            right = mid - 1;
     }
     return -1;
 }
@@ -31,6 +30,6 @@ int main()
     {
         cin >> a[i];
     }
-    cout << "下标与值相等的数的下标为:" << SearchTag(a, n, 0) << endl;
+    cout << "下标与值相等的数的下标为:" << SearchTag(a, n) << endl;
     return 0;
 }
