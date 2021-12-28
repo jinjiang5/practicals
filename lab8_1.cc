@@ -6,7 +6,7 @@ bool BinarySearch(int a[], int n, int x, int &i, int &j)
 {
     int left = 0;
     int right = n - 1;
-    while (left < right)
+    while (left <= right)
     {
         int mid = (left + right) / 2;
         if (x == a[mid])
@@ -43,16 +43,16 @@ int main()
     }
     else
     {
-        if (a[i] < x)
-        {
-            j = i + 1;
+        if(x < a[0]){
+            cout << "数组中没有小于" << x << "的数" << endl;
+        } else {
+            cout << "小于" << x << "的最大数位置:" << i + 1 << endl;
         }
-        else
-        {
-            i = j - 1;
-        }
-        cout << "小于" << x << "的最大数位置:" << i + 1 << endl;
-        cout << "大于" << x << "的最小数位置:" << j + 1 << endl;
+        if(x > a[n - 1]){
+            cout << "数组中没有大于" << x << "的数" << endl;
+        } else {
+            cout << "大于" << x << "的最小数位置:" << j + 1 << endl;
+        }   
     }
     return 0;
 }
