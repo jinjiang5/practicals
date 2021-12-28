@@ -9,7 +9,7 @@ int SearchTag(int a[], int n, int x)
     while (left < right)
     {
         int mid = (left + right) / 2;
-        x = mid + 1;
+        x = mid;
         if (x == a[mid])
             return mid;
         if (x > a[mid])
@@ -31,6 +31,6 @@ int main()
     {
         cin >> a[i];
     }
-    cout << "位置与值相等的数的位置为:" << SearchTag(a, n, 0) + 1 << endl;
+    cout << "下标与值相等的数的下标为:" << SearchTag(a, n, 0) << endl;
     return 0;
 }
